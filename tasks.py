@@ -19,10 +19,6 @@ def update_corplist():
         code_df = read_html(url, header=0)[0]
         code_df.종목코드 = code_df.종목코드.map('{:06d}'.format)
         code_df = code_df[['회사명','종목코드']]
-        # code_df = code_df.rename(columns={
-        #     '회사명' : 'name', 
-        #     '종목코드' : 'code'
-        # })
         
         for code in code_df.values:
             stock_code = str(code[1])
